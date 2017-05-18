@@ -32,6 +32,16 @@ class BodyChunk(buf:MappedByteBuffer, val ref:Corp){
 		buf.force()
 	}
 
+	def getChunkAtIndex(key:Char):BodyChunk = {
+		new BodyChunk(ref.getChunk(getIndex(key)), ref)
+	}
+
+	def makeNewChunkAtIndex(key:Char):BodyChunk = {
+		val pair:(Long, MappedByteBuffer) = ref.getAndAppendBodyChunk()
+		setIndex(key, pair._1)
+		return new BodyChunk(pair._2, ref)
+	}
+
 	def getGate(ind:Int):Byte = {
 		buf.get(ind)
 	}
