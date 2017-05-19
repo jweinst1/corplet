@@ -18,8 +18,14 @@ object Repl {
 			args = input.split(" ")
 			if(args.length == 0) {println("Error: No Repl Input")}
 			else args(0) match {
-				case "create" => {}
-				
+				case "create" => {
+					Commands.create(args(1))
+					println(s":[Created Corplet ${args(1)}]")
+				}
+				case "open" => {
+					corps(args(1)) = Commands.open(args(1))
+					println(s":[Opened Corplet ${args(1)}]")
+				}
 			}
 		}
 	}
