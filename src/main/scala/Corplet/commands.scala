@@ -80,4 +80,8 @@ object Commands {
 	def tagStrings(corp:Corp, tag:String, strs:Array[String]):Array[(String, String)] = {
 		for(str <- strs) yield if(contains(corp, str)) {(str, tag)} else {(str, "NULL")}
 	}
+
+	def forAllStrings(corp:Corp, strs:Array[String]):Boolean = {
+		strs.forall((s:String) => contains(corp, s))
+	}
 }
