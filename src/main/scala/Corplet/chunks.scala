@@ -42,12 +42,12 @@ class BodyChunk(buf:MappedByteBuffer, val ref:Corp){
 		return new BodyChunk(pair._2, ref)
 	}
 
-	def getGate(ind:Int):Byte = {
-		buf.get(ind)
+	def getGate(ind:Char):Byte = {
+		buf.get(Util.inWord(key))
 	}
 
-	def setGate(ind:Int, code:Byte):Unit = {
-		buf.put(ind, code)
+	def setGate(ind:Char, code:Byte):Unit = {
+		buf.put(Util.inWord(key), code)
 		buf.force()
 	}
 }
