@@ -30,6 +30,10 @@ object Commands {
 		corp.close()
 	}
 
+	/** Function that inserts a new phrase into the Corplet
+	  * @param phrase a string containng only the characters a-z and space
+	  * @param corp an instance of the Corp class
+	  */
 	def insert(corp:Corp, phrase:String):Unit = {
 		validateHeader(corp)
 		var curChunk:BodyChunk = new BodyChunk(corp.getFirstChunk(), corp)
@@ -51,7 +55,29 @@ object Commands {
 		curChunk.setGate(phrase(phrase.length-1), (2).toByte)
 	}
 
+	def contains(corp:Corp, phrase:String):Boolean = {
+		var curChunk:BodyChunk = new BodyChunk(corp.getFirstChunk(), corp)
+		var has:Boolean = false;
+		for(i <- 0 until phrase.length-1){
+			curChunk.getGate(phrase(i)) match {
+				case 0 => has = false;
+				case 1 => curChunk = curChunk.getChunkAtIndex(phrase(i));
+				case 2 => curChunk = curChunk.getChunkAtIndex(phrase(i));
+			}
+		}
+		curChunk.getGate(phrase(phrase.length-1)) match {
+			case 0 => has = false;
+			case 1 => has = false;
+			case 2 => has = true;
+		}
+		return has
+	}
+
 	def validateHeader(corp:Corp):Unit = {
 		if(!new HeaderChunk(corp.getHeader()).validate()) throw HeaderError(s"Corplet: ${corp.path} has invalid header")
+	}
+
+	def tagStrings(corp:Corp, tag:String, strs:Array[String]):Array[(String, String)] = {
+		for(str <- strs) yield if(contains(corp, str)) {(str, tag)} else {(str, "NULL")}
 	}
 }

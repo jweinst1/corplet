@@ -1,6 +1,6 @@
 package Corplet
 
-import java.io.IOException
+
 
 
 
@@ -43,7 +43,7 @@ object Util {
 			case 'y' => 24;
 			case 'z' => 25;
 			case ' ' => 26;
-			case other:Char => throw new IOException(s"Invalid Char: $other")
+			case other:Char => throw CharError(s"Invalid char: $input Must be a-z or space")
 		}
 	}
 }
