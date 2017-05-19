@@ -4,8 +4,10 @@ package Corplet
 
 object main extends App {
 	println("Corplet");
-	val g = new Corp("build.sbt");
-	println(new BodyChunk(g.getFirstChunk(), g).getIndex('t'));
+	Commands.create("foo")
+	val cur:Corp = Commands.open("foo")
+	Commands.insert(cur, "hello")
+	println("done")
 }
 
 

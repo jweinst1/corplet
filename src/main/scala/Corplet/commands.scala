@@ -6,7 +6,7 @@ import java.io.RandomAccessFile
   * and more with Corplet. Top level abstraction
   */
 object Commands {
-	def createCorplet(name:String):Unit = {
+	def create(name:String):Unit = {
 		val file = new RandomAccessFile(name + ".corp", "rwd");
 		val header:Array[Byte] = Array(33, 39, 83)
 		file.write(header)
@@ -34,11 +34,16 @@ object Commands {
 				case 1 => {
 					curChunk = curChunk.getChunkAtIndex(phrase(i))
 				}
+				case 2 => {
+					curChunk.setGate(phrase(i), (1).toByte)
+					curChunk = curChunk.makeNewChunkAtIndex(phrase(i))
+				}
 			}
 		}
+		curChunk.setGate(phrase(phrase.length-1), (2).toByte)
 	}
 
 	def validateHeader(corp:Corp):Unit = {
-		if(!corp.getHeader().validate()) throw HeaderError(s"Corplet: ${corp.path} has invalid header")
+		if(!new HeaderChunk(corp.getHeader()).validate()) throw HeaderError(s"Corplet: ${corp.path} has invalid header")
 	}
 }

@@ -43,11 +43,11 @@ class BodyChunk(buf:MappedByteBuffer, val ref:Corp){
 	}
 
 	def getGate(ind:Char):Byte = {
-		buf.get(Util.inWord(key))
+		buf.get(Util.inWord(ind))
 	}
 
 	def setGate(ind:Char, code:Byte):Unit = {
-		buf.put(Util.inWord(key), code)
+		buf.put(Util.inWord(ind), code)
 		buf.force()
 	}
 }
