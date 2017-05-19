@@ -1,6 +1,6 @@
 package Corplet
 
-import java.io.RandomAccessFile
+import java.io.{RandomAccessFile, File}
 
 /** Namespace of static methods and commands to create, insert, check
   * and more with Corplet. Top level abstraction
@@ -15,6 +15,14 @@ object Commands {
 
 	def open(name:String):Corp = {
 		new Corp(name + ".corp")
+	}
+
+	def delete(name:String):Unit = {
+		new File(name + ".corp").delete()
+	}
+
+	def exists(name:String):Boolean = {
+		new File(name + ".corp").exists()
 	}
 
 	def saveAndClose(corp:Corp):Unit = {

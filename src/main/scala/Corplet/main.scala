@@ -8,6 +8,7 @@ object main extends App {
 	val cur:Corp = Commands.open("foo")
 	Commands.insert(cur, "hello")
 	println("done")
+	Commands.saveAndClose(cur)
 }
 
 
