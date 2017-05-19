@@ -7,8 +7,11 @@ import scala.collection.mutable.HashMap
   */
 object Repl {
 
+	/** Runs the Repl on the command line to interact with Corplets
+	  *
+	  */
 	def run():Unit = {
-		val corps:HashMap[Corp] = HashMap()
+		var corps:HashMap[String, Corp] = HashMap()
 		var running:Boolean = true
 		var input:String = ""
 		var args:Array[String] = Array()
@@ -25,6 +28,23 @@ object Repl {
 				case "open" => {
 					corps(args(1)) = Commands.open(args(1))
 					println(s":[Opened Corplet ${args(1)}]")
+				}
+				case "close" => {
+					Commands.saveAndClose(corps(args(1)))
+					corps.remove(args(1))
+					println(s":[Closed Corplet ${args(1)}]")
+				}
+				case "quit" => {
+					for((_, c) <- corps) Commands.saveAndClose(c);
+					println(":[Quit Corplet]")
+					running = false
+				}
+				case "insert" => {
+					for(i <- 2 until args.length) Commands.insert(corps(args(1)), args(i));
+					println(s":[Inserted ${args.slice(2, args.length).mkString(",")} into Corp: ${args(1)}]")
+				}
+				case "contains" => for(i <- 2 until args.length) {
+					println(s":[${args(1)} = ${args(i)} -> ${Commands.contains(corps(args(1)), args(i))}]")
 				}
 			}
 		}

@@ -7,13 +7,15 @@ import java.io.{RandomAccessFile, File}
   */
 object Commands {
 	def create(name:String):Unit = {
+		if(new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name already exists.")
 		val file = new RandomAccessFile(name + ".corp", "rwd");
 		val header:Array[Byte] = Array(33, 39, 83)
 		file.write(header)
 		file.close()
 	}
 
-	def createFrom(name:String strs:Array[String]):Unit = {
+	def createFrom(name:String, strs:Array[String]):Unit = {
+		if(new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name already exists.")
 		val file = new RandomAccessFile(name + ".corp", "rwd");
 		val header:Array[Byte] = Array(33, 39, 83)
 		file.write(header)
@@ -23,7 +25,8 @@ object Commands {
 	}
 
 	def open(name:String):Corp = {
-		new Corp(name + ".corp")
+		if(!new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name does not exist.")
+		else new Corp(name + ".corp")
 	}
 
 	def delete(name:String):Unit = {

@@ -15,7 +15,9 @@ class HeaderChunk(buf:ByteBuffer) {
 		buf.get(2) == (83).toByte
 	}
 }
-
+/** Class to serve as a binary trie nod that travereses the Corplet
+  * @note A Gate is a byte slot that can have the values 0, 1 or 2
+  */
 class BodyChunk(buf:MappedByteBuffer, val ref:Corp){
 	buf.position(27)
 	val indexes:LongBuffer = buf.asLongBuffer()

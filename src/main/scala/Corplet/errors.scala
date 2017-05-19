@@ -9,3 +9,8 @@ case class HeaderError(val message:String) extends Throwable;
   *
   */
 case class CharError(val message:String = "Invalid Char, only a-z and space are accepted") extends Throwable;
+
+/** Error for trying to create a Corp with name that already exists
+  *
+  */
+case class CorpExistsError(val message:String) extends Throwable;
