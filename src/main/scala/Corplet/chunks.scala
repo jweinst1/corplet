@@ -54,11 +54,15 @@ class BodyChunk(buf:MappedByteBuffer, val ref:Corp){
 		setIndex(key, pair._1)
 		return new BodyChunk(pair._2, ref)
 	}
-
+	/** Gets the byte value, 0, 1 or 2 at a gate in the chunk.
+	  * @note Gates determine whether a phrase is continuing, ended, or not started.
+	  */
 	def getGate(ind:Char):Byte = {
 		buf.get(Util.inWord(ind))
 	}
-
+	/** Sets a gate in the body chunk.
+	  *
+	  */
 	def setGate(ind:Char, code:Byte):Unit = {
 		buf.put(Util.inWord(ind), code)
 		buf.force()

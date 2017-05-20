@@ -330,7 +330,7 @@ and more with Corplet. Top level abstraction
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="Corplet.Commands#contains" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="Corplet.Commands#contains" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="contains(corp:Corplet.Corp,phrase:String):Boolean"></a><a id="contains(Corp,String):Boolean"></a>
       <span class="permalink">
       <a href="../Corplet/Commands$.html#contains(corp:Corplet.Corp,phrase:String):Boolean" title="Permalink">
@@ -345,8 +345,8 @@ and more with Corplet. Top level abstraction
         <span class="name">contains</span><span class="params">(<span name="corp">corp: <a href="Corp.html" class="extype" name="Corplet.Corp">Corp</a></span>, <span name="phrase">phrase: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       
-      
-    </li><li name="Corplet.Commands#create" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Quickly traverses the Corplet and checks if a phrase is contained in it.</p><div class="fullcomment"><div class="comment cmt"><p>Quickly traverses the Corplet and checks if a phrase is contained in it.</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>Takes O(l) complexity where l is the length of the string</p></span></dd></dl></div>
+    </li><li name="Corplet.Commands#create" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="create(name:String):Unit"></a><a id="create(String):Unit"></a>
       <span class="permalink">
       <a href="../Corplet/Commands$.html#create(name:String):Unit" title="Permalink">
@@ -361,8 +361,8 @@ and more with Corplet. Top level abstraction
         <span class="name">create</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
-    </li><li name="Corplet.Commands#createFrom" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Creates a new .corp file</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new .corp file</p></div><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="CorpExistsError.html" class="extype" name="Corplet.CorpExistsError"><code>CorpExistsError</code></a> if file already exists</p></span></dd></dl></div>
+    </li><li name="Corplet.Commands#createFrom" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="createFrom(name:String,strs:Array[String]):Unit"></a><a id="createFrom(String,Array[String]):Unit"></a>
       <span class="permalink">
       <a href="../Corplet/Commands$.html#createFrom(name:String,strs:Array[String]):Unit" title="Permalink">
@@ -377,7 +377,7 @@ and more with Corplet. Top level abstraction
         <span class="name">createFrom</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="strs">strs: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Creates a new corplet and inserts an array of phrases into it.</p><div class="fullcomment"><div class="comment cmt"><p>Creates a new corplet and inserts an array of phrases into it.</p></div><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="CorpExistsError.html" class="extype" name="Corplet.CorpExistsError"><code>CorpExistsError</code></a> if file already exists</p></span></dd></dl></div>
     </li><li name="Corplet.Commands#delete" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="delete(name:String):Unit"></a><a id="delete(String):Unit"></a>
       <span class="permalink">
@@ -393,7 +393,7 @@ and more with Corplet. Top level abstraction
         <span class="name">delete</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Deletes a Corplet</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -441,7 +441,7 @@ and more with Corplet. Top level abstraction
         <span class="name">exists</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Checks if a Corplet exists</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
@@ -607,7 +607,7 @@ and more with Corplet. Top level abstraction
         <span class="name">open</span><span class="params">(<span name="name">name: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="Corp.html" class="extype" name="Corplet.Corp">Corp</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Opens a Corplet and returns an instance of the Corp class connecting to it.</p>
     </li><li name="Corplet.Commands#reTagStrings" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="reTagStrings(corp:Corplet.Corp,tag:String,pairs:Array[(String,String)]):Array[(String,String)]"></a><a id="reTagStrings(Corp,String,Array[(String,String)]):Array[(String,String)]"></a>
       <span class="permalink">
@@ -623,8 +623,8 @@ and more with Corplet. Top level abstraction
         <span class="name">reTagStrings</span><span class="params">(<span name="corp">corp: <a href="Corp.html" class="extype" name="Corplet.Corp">Corp</a></span>, <span name="tag">tag: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="pairs">pairs: <span class="extype" name="scala.Array">Array</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
       </span>
       
-      
-    </li><li name="Corplet.Commands#saveAndClose" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt"></p>
+    </li><li name="Corplet.Commands#saveAndClose" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="saveAndClose(corp:Corplet.Corp):Unit"></a><a id="saveAndClose(Corp):Unit"></a>
       <span class="permalink">
       <a href="../Corplet/Commands$.html#saveAndClose(corp:Corplet.Corp):Unit" title="Permalink">
@@ -639,7 +639,7 @@ and more with Corplet. Top level abstraction
         <span class="name">saveAndClose</span><span class="params">(<span name="corp">corp: <a href="Corp.html" class="extype" name="Corplet.Corp">Corp</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Saves and closes a Corplet</p><div class="fullcomment"><div class="comment cmt"><p>Saves and closes a Corplet</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>New instance of Corplet needed for insertion after this</p></span></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">

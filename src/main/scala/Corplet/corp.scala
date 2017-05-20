@@ -11,17 +11,29 @@ class Corp(val path:String) {
 	val source:FileChannel = new RandomAccessFile(path, "rwd").getChannel()
 	var isClosed = false;
 
+	/** Resets file pointer position, although most reads are index based
+	  *
+	  */
 	def resetPos():Unit = source.position((0).toLong);
-
+	/** Forces changes from the channel to file
+	  *
+	  */
 	def save():Unit = source.force(false);
-
+	/** Closes the channel connecting to the corp.
+	  *
+	  */
 	def close():Unit = {
 		source.close()
 		isClosed = true
 	}
-
+	/** Checks if file channel pointer is at the end.
+	  *
+	  */
 	def isAtEnd():Boolean = source.position() == source.size();
 
+	/** Gets header
+	  * @note Gets a ByteBuffer, not memory mapped.
+	  */
 	def getHeader():ByteBuffer = {
 		val buf = ByteBuffer.allocate(3)
 		source.read(buf, 0)

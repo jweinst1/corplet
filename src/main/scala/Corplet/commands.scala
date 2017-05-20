@@ -6,6 +6,9 @@ import java.io.{RandomAccessFile, File}
   * and more with Corplet. Top level abstraction
   */
 object Commands {
+	/** Creates a new .corp file
+	  * @throws CorpExistsError if file already exists
+	  */
 	def create(name:String):Unit = {
 		if(new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name already exists.")
 		val file = new RandomAccessFile(name + ".corp", "rwd");
@@ -13,7 +16,9 @@ object Commands {
 		file.write(header)
 		file.close()
 	}
-
+	/** Creates a new corplet and inserts an array of phrases into it.
+	  * @throws CorpExistsError if file already exists
+	  */
 	def createFrom(name:String, strs:Array[String]):Unit = {
 		if(new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name already exists.")
 		val file = new RandomAccessFile(name + ".corp", "rwd");
@@ -23,20 +28,28 @@ object Commands {
 		val corp:Corp = new Corp(name + ".corp");
 		for(str <- strs) insert(corp, str);
 	}
-
+	/** Opens a Corplet and returns an instance of the Corp class connecting to it.
+	  *
+	  */
 	def open(name:String):Corp = {
 		if(!new File(name + ".corp").exists()) throw CorpExistsError(s"Corp of name: $name does not exist.")
 		else new Corp(name + ".corp")
 	}
-
+	/** Deletes a Corplet
+	  *
+	  */
 	def delete(name:String):Unit = {
 		new File(name + ".corp").delete()
 	}
-
+	/** Checks if a Corplet exists
+	  *
+	  */
 	def exists(name:String):Boolean = {
 		new File(name + ".corp").exists()
 	}
-
+	/** Saves and closes a Corplet
+	  * @note New instance of Corplet needed for insertion after this
+	  */
 	def saveAndClose(corp:Corp):Unit = {
 		corp.save()
 		corp.close()
@@ -66,7 +79,9 @@ object Commands {
 		}
 		curChunk.setGate(phrase(phrase.length-1), (2).toByte)
 	}
-
+	/** Quickly traverses the Corplet and checks if a phrase is contained in it.
+	  * @note Takes O(l) complexity where l is the length of the string
+	  */
 	def contains(corp:Corp, phrase:String):Boolean = {
 		var curChunk:BodyChunk = new BodyChunk(corp.getFirstChunk(), corp)
 		var has:Boolean = false;
@@ -98,7 +113,9 @@ object Commands {
 	def tagStrings(corp:Corp, tag:String, strs:Array[String]):Array[(String, String)] = {
 		for(str <- strs) yield if(contains(corp, str)) {(str, tag)} else {(str, "NULL")}
 	}
-
+	/**
+	  *
+	  */
 	def reTagStrings(corp:Corp, tag:String, pairs:Array[(String, String)]):Array[(String, String)] = {
 		for(pair <- pairs) yield if(contains(corp, pair._1)) {(pair._1, tag)} else {pair}
 	}

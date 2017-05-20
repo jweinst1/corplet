@@ -185,7 +185,7 @@ and more with Corplet.">
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class to serve as a binary trie nod that travereses the Corplet</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>A Gate is a byte slot that can have the values 0, 1 or 2</p></span></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Class to serve as a binary trie nod that travereses the Corplet</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>Uses memory mapped buffer for performance and boost and thread safety</p></span>, <span class="cmt"><p>A Gate is a byte slot that can have the values 0, 1 or 2</p></span></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -416,7 +416,7 @@ and more with Corplet.">
         <span class="name">getChunkAtIndex</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <a href="" class="extype" name="Corplet.BodyChunk">BodyChunk</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Gets the next bodychunk that is present at some index in the file</p>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
@@ -433,7 +433,7 @@ and more with Corplet.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="Corplet.BodyChunk#getGate" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="Corplet.BodyChunk#getGate" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getGate(ind:Char):Byte"></a><a id="getGate(Char):Byte"></a>
       <span class="permalink">
       <a href="../Corplet/BodyChunk.html#getGate(ind:Char):Byte" title="Permalink">
@@ -448,8 +448,8 @@ and more with Corplet.">
         <span class="name">getGate</span><span class="params">(<span name="ind">ind: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Byte">Byte</span></span>
       </span>
       
-      
-    </li><li name="Corplet.BodyChunk#getIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Gets the byte value, 0, 1 or 2 at a gate in the chunk.</p><div class="fullcomment"><div class="comment cmt"><p>Gets the byte value, 0, 1 or 2 at a gate in the chunk.</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>Gates determine whether a phrase is continuing, ended, or not started.</p></span></dd></dl></div>
+    </li><li name="Corplet.BodyChunk#getIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getIndex(key:Char):Long"></a><a id="getIndex(Char):Long"></a>
       <span class="permalink">
       <a href="../Corplet/BodyChunk.html#getIndex(key:Char):Long" title="Permalink">
@@ -464,7 +464,7 @@ and more with Corplet.">
         <span class="name">getIndex</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="scala.Long">Long</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Gets the index/pointer at some position in the index portion of the chunk</p><div class="fullcomment"><div class="comment cmt"><p>Gets the index/pointer at some position in the index portion of the chunk</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>indexes are all identical to Java's Long type</p></span></dd></dl></div>
     </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="hashCode():Int"></a>
       <span class="permalink">
@@ -513,7 +513,7 @@ and more with Corplet.">
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="Corplet.BodyChunk#makeNewChunkAtIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="Corplet.BodyChunk#makeNewChunkAtIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="makeNewChunkAtIndex(key:Char):Corplet.BodyChunk"></a><a id="makeNewChunkAtIndex(Char):BodyChunk"></a>
       <span class="permalink">
       <a href="../Corplet/BodyChunk.html#makeNewChunkAtIndex(key:Char):Corplet.BodyChunk" title="Permalink">
@@ -528,7 +528,7 @@ and more with Corplet.">
         <span class="name">makeNewChunkAtIndex</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <a href="" class="extype" name="Corplet.BodyChunk">BodyChunk</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Makes a new chunk at the end of the file and sets it in the specified index</p><div class="fullcomment"><div class="comment cmt"><p>Makes a new chunk at the end of the file and sets it in the specified index</p></div><dl class="attributes block"> <dt>Note</dt><dd><span class="cmt"><p>used for inserting new phrases into the corplet.</p></span></dd></dl></div>
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -608,8 +608,8 @@ and more with Corplet.">
         <span class="name">setGate</span><span class="params">(<span name="ind">ind: <span class="extype" name="scala.Char">Char</span></span>, <span name="code">code: <span class="extype" name="scala.Byte">Byte</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
-    </li><li name="Corplet.BodyChunk#setIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Sets a gate in the body chunk.</p>
+    </li><li name="Corplet.BodyChunk#setIndex" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="setIndex(key:Char,ind:Long):Unit"></a><a id="setIndex(Char,Long):Unit"></a>
       <span class="permalink">
       <a href="../Corplet/BodyChunk.html#setIndex(key:Char,ind:Long):Unit" title="Permalink">
@@ -624,7 +624,7 @@ and more with Corplet.">
         <span class="name">setIndex</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Char">Char</span></span>, <span name="ind">ind: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Sets some index in the chunk for a pointer to some position in the file</p><div class="fullcomment"><div class="comment cmt"><p>Sets some index in the chunk for a pointer to some position in the file</p></div><dl class="paramcmts block"><dt class="param">ind</dt><dd class="cmt"><p>A 64 bit number that corresponds to some position in the file</p></dd></dl></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
