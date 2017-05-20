@@ -21,6 +21,7 @@ object Repl {
 			args = input.split(" ")
 			if(args.length == 0) {println("Error: No Repl Input")}
 			else args(0) match {
+				case "help" => printHelp();
 				case "create" => {
 					Commands.create(args(1))
 					println(s":[Created Corplet ${args(1)}]")
@@ -57,5 +58,17 @@ object Repl {
 		println("----- Corplet Repl -----")
 		println("------************------")
 		println("|--By: Josh Weinstein--|")
+		println("\nHint: type help to see the commands")
+	}
+
+	def printHelp():Unit = {
+		println("-Help~~~~~~~~~")
+		println("commands:     ")
+		println("create <name> = Creates a new Corplet with a .corp file")
+		println("quit = Stops the repl")
+		println("close <name> = Closes an active Corplet")
+		println("open <name> = Opens an existing Corplet")
+		println("insert <name> <args*> = Inserts an arbitrary number of words into the Corplet")
+		println("contains <name> <args*> = Checks and prints if an arbitrary number of words are in the Corplet")
 	}
 }
