@@ -28,6 +28,10 @@ corp> quit
 
 You can also use Corplet in scala or java projects.
 
+##Documentation
+
+[Click here to see the detailed documentation](https://jweinst1.github.io/corplet/target/scala-2.12/api/transjs/index.html)
+
 ## Implementation
 
 `Corplet` uses a binary-digit-trie data structure that are stored in `.corp` files. These tries are traversed through Java's nio file channels and `MappedByteBuffers`, which allow for asynchronus file input/output, and to only load minimal data into memory when traversing the corpus.
