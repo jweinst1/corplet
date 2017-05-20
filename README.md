@@ -28,7 +28,7 @@ corp> quit
 
 You can also use Corplet in scala or java projects.
 
-##Documentation
+## Documentation
 
 [Click here to see the detailed documentation](https://jweinst1.github.io/corplet/target/scala-2.12/api/transjs/index.html)
 
