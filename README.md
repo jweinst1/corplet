@@ -30,7 +30,7 @@ You can also use Corplet in scala or java projects.
 
 ## Documentation
 
-[Click here to see the detailed documentation](https://jweinst1.github.io/corplet/target/scala-2.12/api/transjs/index.html)
+[Click here to see the detailed documentation](https://jweinst1.github.io/corplet/target/scala-2.12/api/corplet/index.html)
 
 ## Implementation
 
