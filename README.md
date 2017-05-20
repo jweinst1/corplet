@@ -28,6 +28,18 @@ corp> quit
 
 You can also use Corplet in scala or java projects.
 
-### `Example`
+## Implementation
 
-If the word "Hello" is in the set, it takes O(5) complexity.
+`Corplet` uses a binary-digit-trie data structure that are stored in `.corp` files. These tries are traversed through Java's nio file channels and `MappedByteBuffers`, which allow for asynchronus file input/output, and to only load minimal data into memory when traversing the corpus.
+
+### File Format
+
+A `.corp` file consists of a three byte header, followed by an unlimited number of 243 byte `BodyChunks` that act as nodes in the binary trie.
+
+**Header:**
+
+```
+[33][39][83]
+```
+
+**BodyChunk:**
