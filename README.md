@@ -43,3 +43,11 @@ A `.corp` file consists of a three byte header, followed by an unlimited number 
 ```
 
 **BodyChunk:**
+
+```
+-Gates-(Bytes)
+[0][0][0][0][0]............[0] #27 Gates, 27 bytes
+
+-Indexes-(64 bit Longs)
+[0][0][0][0][0]............[0] #27 Indexes, 216 Bytes
+```
