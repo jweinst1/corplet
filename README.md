@@ -51,3 +51,25 @@ A `.corp` file consists of a three byte header, followed by an unlimited number 
 -Indexes-(64 bit Longs)
 [0][0][0][0][0]............[0] #27 Indexes, 216 Bytes
 ```
+
+Each index is a 64 bit number, identical to a Java Long, that acts as a pointer to some byte address later in the file. This is so the Corplet can be continuously grown by appending more chunks to the file without moving anything.
+
+However, this also means a Corplet does not allow deletion of any words. You will need to create a new Corplet if you want to remove words.
+
+#### `Phrases`:
+
+A phrase is some string that contains any lower case letter or a space character. The characters in these strings
+
+#### `Gate`:
+
+Each gate can have the value 0, 1 or 2. This corresponds to whether or not a character mapped digit exists as a child node, or a phrase has ended.
+
+* 0 -> There is no child chunk, and there is no phrase ending here.
+* 1 -> There is a child chunk at the corresponding index slot, and a phrase has not ended here.
+* 2 -> There could be a child chunk, or not, but a phrase ends here. This means the contans method will return true when finding a phrase that it's last character is mapped here.
+
+### Example
+
+Here is a diagram to demonstrate how this works.
+
+![Corp Diagram](images/Corpletpic.png)
