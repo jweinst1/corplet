@@ -113,13 +113,15 @@ object Commands {
 	def tagStrings(corp:Corp, tag:String, strs:Array[String]):Array[(String, String)] = {
 		for(str <- strs) yield if(contains(corp, str)) {(str, tag)} else {(str, "NULL")}
 	}
-	/**
+	/** Retags a pair of string-string tuples with a Corp
 	  *
 	  */
 	def reTagStrings(corp:Corp, tag:String, pairs:Array[(String, String)]):Array[(String, String)] = {
 		for(pair <- pairs) yield if(contains(corp, pair._1)) {(pair._1, tag)} else {pair}
 	}
-
+	/** Checks if all the strings in the array are contained in the Corpus
+	  *
+	  */
 	def forAllStrings(corp:Corp, strs:Array[String]):Boolean = {
 		strs.forall((s:String) => contains(corp, s))
 	}
